@@ -1,19 +1,20 @@
 // JAVASCRIPT KODAS DINAMIŠKAI GENERUOTI LENTELĘ SU DUOMENIMIS
 document.addEventListener('DOMContentLoaded', function() {
-    fetch('/api2/projektai')
+    fetch('/api/automobiliai')
         .then(response => response.json())
         .then(data => {
-            const tbody = document.getElementById('projektai-body');
+            const tbody = document.getElementById('automobiliai-body');
             tbody.innerHTML = '';
 
-            data.forEach(projektas => {
+            data.forEach(auto => {
                 const tr = document.createElement('tr');
 
                 tr.innerHTML = `
-                    <td>${projektas.id}</td>
-                    <td>${projektas.pavadinimas}</td>
-                    <td>${projektas.kaina}</td>
-                    <td>${projektas.sukurimo_data}</td>
+                    <td>${auto.id}</td>
+                    <td>${auto.gamintojas}</td>
+                    <td>${auto.modelis}</td>
+                    <td>${auto.spalva}</td>
+                    <td>${auto.kaina}</td>
                 `;
 
                 tbody.appendChild(tr);
