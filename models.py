@@ -11,6 +11,5 @@ class Automobilis(db.Model):
     spalva = db.Column(db.String)
     kaina = db.Column(db.Float)
 
-
     def __repr__(self):
         return f"id: {self.id} {self.gamintojas} {self.modelis} {self.spalva} {self.kaina}"

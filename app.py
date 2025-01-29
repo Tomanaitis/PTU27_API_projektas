@@ -53,7 +53,6 @@ def update_car(row_id):
         return redirect(url_for("home"))
 
 
-
 @app.route("/automobilis/trynimas/<int:row_id>", methods=["POST"])
 def delete_car(row_id):
     auto = Automobilis.query.get(row_id)
@@ -79,7 +78,6 @@ def create_car():
             db.session.add(new_car)
             db.session.commit()
         return redirect(url_for('home'))
-
 
 
 if __name__ == "__main__":

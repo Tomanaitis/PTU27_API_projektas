@@ -1,11 +1,10 @@
 from models import db, Automobilis
 from flask import Flask, render_template, jsonify
 from serializers import AutomobiliaiSchema
-
-# from flask_cors import CORS
+from flask_cors import CORS
 
 app = Flask(__name__)
-# CORS(app)  # įgalina frontendą pasiekti endpointus iš kito serverio
+CORS(app)  # įgalina frontendą pasiekti endpointus iš kito serverio
 
 # fizinės duomenų bazės - db, prijungimas, configas
 
@@ -31,11 +30,13 @@ def api_automobiliai():
     } for auto in all_auto]
     return jsonify(auto_data)
 
+
 @app.route("/api2/automobiliai")
-def api2_automobiliai
+def api2_automobiliai():
     all_auto = Automobilis.query.all()
     auto_data = [AutomobiliaiSchema.model_validate(auto).model_dump() for auto in all_auto]
     return jsonify(auto_data)
+
 
 @app.route("/frontend")
 def frontend():
@@ -43,4 +44,4 @@ def frontend():
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(port=5001, debug=True)
