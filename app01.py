@@ -31,6 +31,15 @@ def api_automobiliai():
     } for auto in all_auto]
     return jsonify(auto_data)
 
+@app.route("/api2/automobiliai")
+def api2_automobiliai
+    all_auto = Automobilis.query.all()
+    auto_data = [AutomobiliaiSchema.model_validate(auto).model_dump() for auto in all_auto]
+    return jsonify(auto_data)
+
+@app.route("/frontend")
+def frontend():
+    return render_template("automobiliai.html")
 
 
 if __name__ == "__main__":
